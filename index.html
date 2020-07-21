@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            font-size: 1.5em;
+            text-align: center;
+        }
+
+        th, td {
+            padding : 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <select onchange="changePrac()" id="prac">
+        <option id="select" value="0">選択してください</option>
+        <option id="selected_1" value="1">prac1</option>
+        <option id="selected_2" value="2">prac2</option>
+        <option id="selected_all" value="3">all</option>
+    </select>
+    <table>
+        <tr id="fir_content">
+            <th>prac1</th>
+            <td>aaaaa</td>
+            <td>bbbbb</td>
+            <td>ccccc</td>
+        </tr>
+        <tr id="sec_content">
+            <th>prac2</th>
+            <td>ddddd</td>
+            <td>eeeee</td>
+            <td>fffff</td>
+        </tr>
+    </table>
+
+    <script>
+        // console.log(document.getElementById('prac').options[2])
+        //①onchangeで使用されている関数の中身を実装してください。
+        function changePrac() {
+            let fir = document.getElementById('selected_1');
+            let sec = document.getElementById('selected_2');
+            let all = document.getElementById('selected_all');
+            let fir_content = document.getElementById('fir_content');
+            let sec_content = document.getElementById('sec_content');
+
+            if (document.getElementById('prac').options[1].selected) {
+                fir_content.style.display = 'block';
+                sec_content.style.display = 'none';
+
+            }else if (document.getElementById('prac').options[2].selected) {
+                sec_content.style.display = 'block';
+                fir_content.style.display = 'none';
+
+            }else if (document.getElementById('prac').options[3].selected) {
+                fir_content.style.display = 'block';
+                sec_content.style.display = 'block';
+            }else {
+                fir_content.style.display = 'block';
+                sec_content.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
